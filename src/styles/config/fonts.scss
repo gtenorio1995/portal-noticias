@@ -1,0 +1,20 @@
+// Imports Config
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// FONT FAMILY
+$font-family: 'Archivo', serif;
+
+// FONT WEIGHT
+$regular: 400;
+$semi-bold: 600;
+$extra-bold: 800;
+
+// FONT SIZE
+$font-24: converter(24);
+$font-16: converter(16);
+$font-14: converter(14);

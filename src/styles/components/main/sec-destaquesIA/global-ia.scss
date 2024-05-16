@@ -1,0 +1,98 @@
+// Imports Config
+@use '../../../config/fonts.scss';
+@use '../../../config/colors.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Mixins
+@mixin h1 ($size: fonts.$font-24, $line-height: 135%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+
+}
+
+@mixin h2 ($size: fonts.$font-16, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin h3 ($size: fonts.$font-14, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin span ($size: fonts.$font-14, $line-height: 145%, $weight: fonts.$semia-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin paragraph ($size: fonts.$font-14, $line-height: 160%, $weight: fonts.$regular) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+// SECTION DESTAQUES IA
+.destaquesIA {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    border-top: 1px solid colors.$stroke-color;
+
+    .heading {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include span(14, 145%, 600);
+        padding: converter(12) 0;
+    }
+
+    .cards-IA {
+        display: grid;
+        margin-top: converter(32);
+        gap: converter(32);
+
+        .card-IA {
+            display: grid;
+            grid-template-columns: 70% 30%;
+
+            .content-tag {
+                font-size: converter(10);
+                font-weight: 500;
+                line-height: converter(12);
+                letter-spacing: converter(2);
+                padding: converter(4) converter(8);
+                color: colors.$text-color-primary;
+                background-color: colors.$brand-color-dark;
+                align-self: center;
+                max-width: converter(160);
+                height: converter(20);
+                border-radius: converter(4);
+            }
+
+            dt {
+                grid-column: 1 / 2;
+                @include h2(16, 140%, 800);
+            }
+
+            dd {
+                grid-column: 1 / 2;
+                @include paragraph(14, 160%, 400);
+                color: colors.$text-color-secondary;
+            }
+
+            img {
+                grid-column: 2 / 3;
+                grid-row: 1 / 4;
+            }
+        }
+    }
+}

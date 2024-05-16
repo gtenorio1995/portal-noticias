@@ -1,0 +1,56 @@
+// Imports Config
+@use '../../../config/fonts.scss';
+@use '../../../config/colors.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Mixins
+@mixin h1 ($size: fonts.$font-24, $line-height: 135%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+
+}
+
+@mixin h2 ($size: fonts.$font-16, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin h3 ($size: fonts.$font-14, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin span ($size: fonts.$font-14, $line-height: 145%, $weight: fonts.$semia-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin paragraph ($size: fonts.$font-14, $line-height: 160%, $weight: fonts.$regular) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+// SECTION DESTAQUES
+.destaques {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: converter(16);
+    margin-top: converter(40);
+
+    .dest-maior {
+        grid-column: 1 / 3;
+        grid-row: 1 / 3;
+    }
+}

@@ -1,0 +1,86 @@
+// Imports Config
+@use '../../../config/fonts.scss';
+@use '../../../config/colors.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Mixins
+@mixin h1 ($size: fonts.$font-24, $line-height: 135%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+
+}
+
+@mixin h2 ($size: fonts.$font-16, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin h3 ($size: fonts.$font-14, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin span ($size: fonts.$font-14, $line-height: 145%, $weight: fonts.$semia-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin paragraph ($size: fonts.$font-14, $line-height: 160%, $weight: fonts.$regular) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+// SECTION MAIS LIDAS
+.mais-lidas {
+    margin: converter(96) 0;
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 1fr;
+    max-width: 1280px;
+    border-top: 1px solid colors.$stroke-color;
+
+    .heading {
+        grid-column: 1 / -1;
+        display: flex;
+        max-width: 1280px;
+        justify-content: space-between;
+        align-items: center;
+        @include span(14, 145%, 600);
+        padding: converter(12) 0;
+    }
+
+    .cards {
+        grid-column: 1 / -1;
+        max-width: 1280px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: converter(16);
+
+        .card-01 {
+            grid-column: 1 / 2;
+        }
+
+        .card-02 {
+            grid-column: 2 / 3;
+        }
+
+        .card-03 {
+            grid-column: 3 / 4;
+        }
+
+        .card-04 {
+            grid-column: 4 / 5;
+        }
+    }
+}

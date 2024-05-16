@@ -1,0 +1,19 @@
+// Imports Components
+@use '../../config/colors.scss';
+@use '../../config/fonts.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// FOOTER
+footer {
+    border-top: 1px solid colors.$stroke-color;
+    grid-area: footer;
+    padding: converter(48) 0;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+}

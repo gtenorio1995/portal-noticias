@@ -1,0 +1,13 @@
+// Imports Components
+@use './navPrincipal.scss';
+@use './navSecondary.scss';
+
+// HEADER
+header {
+    display: grid;
+    grid-area: header;
+    height: 120px;
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}

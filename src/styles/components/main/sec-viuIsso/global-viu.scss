@@ -1,0 +1,96 @@
+// Imports Config
+@use '../../../config/fonts.scss';
+@use '../../../config/colors.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Mixins
+@mixin h1 ($size: fonts.$font-24, $line-height: 135%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+
+}
+
+@mixin h2 ($size: fonts.$font-16, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin h3 ($size: fonts.$font-14, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin span ($size: fonts.$font-14, $line-height: 145%, $weight: fonts.$semia-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin paragraph ($size: fonts.$font-14, $line-height: 160%, $weight: fonts.$regular) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+// SECTION VIU ISSO?
+.viu-isso {
+    width: 100%;
+    margin-top: converter(32);
+    border-top: 1px solid colors.$stroke-color;
+    padding-right: 2rem;
+
+    .heading {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+        padding: converter(12) 0;
+    }
+
+    .cards-viu {
+        margin-top: converter(24);
+        grid-column: 1 / -1;
+        display: grid;
+        gap: converter(32);
+
+        .card-viu {
+            display: grid;
+            grid-template-columns: 20% 80%;
+            grid-template-rows: auto 1fr;
+            gap: converter(16);
+
+            .content-tag {
+                grid-column: 2 / 3;
+                padding: converter(4) converter(8);
+                border-radius: converter(4);
+                background-color: colors.$brand-color-dark;
+                width: 100%;
+                max-width: converter(250);
+                line-height: converter(12);
+                letter-spacing: converter(3);
+                @include span(10, 1, 400);
+            }
+
+            >img {
+                grid-column: 1 / 2;
+                grid-row: 1 / 3;
+            }
+
+            .title-viu {
+                grid-column: 2 / 3;
+                @include span(14, 140%, 400);
+            }
+        }
+
+        .viu-isso-05 {
+            padding-right: 2rem;
+        }
+    }
+}

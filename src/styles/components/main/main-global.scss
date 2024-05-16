@@ -1,0 +1,40 @@
+// Imports Components
+@use './sec-destaques/global-destaques.scss';
+@use './sec-mais-lidas/global-mais-lidas.scss';
+@use './sec-destaquesIA/global-ia.scss';
+@use './sec-viuIsso/global-viu.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// MAIN
+main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: converter(48);
+
+    .containerIA {
+        max-width: 1280px;
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: auto 1fr;
+        gap: converter(32);
+        margin-top: converter(80);
+
+        .anuncio {
+            >img {
+                max-width: 100%;
+                object-fit: cover;
+                object-position: center;
+                padding-right: 2rem;
+            }
+        }
+    }
+}

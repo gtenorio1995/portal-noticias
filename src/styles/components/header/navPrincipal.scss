@@ -1,0 +1,65 @@
+// Imports Config
+@use '../../config/fonts.scss';
+@use '../../config/colors.scss';
+@use 'sass:math';
+
+// Functions
+@function converter($px) {
+    @return math.div($px, 16) * 1rem;
+}
+
+// Mixins
+@mixin h1 ($size: fonts.$font-24, $line-height: 135%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+
+}
+
+@mixin h2 ($size: fonts.$font-16, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin h3 ($size: fonts.$font-14, $line-height: 140%, $weight: fonts.$extra-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin span ($size: fonts.$font-14, $line-height: 145%, $weight: fonts.$semia-bold) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+@mixin paragraph ($size: fonts.$font-14, $line-height: 160%, $weight: fonts.$regular) {
+    font-size: $size;
+    line-height: $line-height;
+    font-weight: $weight;
+}
+
+// NAV PRINCIPAL
+.nav-principal {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    padding: converter(24) 0;
+
+    button {
+        background: transparent;
+        border: none;
+        @include span(16, 140%, 700);
+    }
+
+    .brand {
+        display: block;
+        justify-self: center;
+        align-self: center;
+        text-align: center;
+        font-size: fonts.$font-24;
+        color: colors.$brand-color-light;
+        font-family: 'Archivo Black', sans-serif;
+        line-height: converter(24);
+    }
+}
